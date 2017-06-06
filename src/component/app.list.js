@@ -27,6 +27,7 @@ export default class TodoAppList extends React.Component {
             {elem}
           </span>
         <button onClick={this.remove}>
+          Delete
         </button>
         </li>
     });

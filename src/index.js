@@ -6,6 +6,12 @@ import './index.css';
 
 var tasksList = ["Task 1", "Task 2", "Task 3"];
 
+var tasks = localStorage.getItem('storedTasks');
+
+if(tasks) {
+  tasksList = JSON.parse(tasks);
+}
+
 ReactDOM.render(
   <App tasks={tasksList} />,
   document.getElementById('root')

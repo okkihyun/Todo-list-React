@@ -14,14 +14,21 @@ export default class App extends Component {
 
   updateList(text) {
     var updatedTasks = this.state.tasks;
-    updatedTasks.push(text);
+    updatedTasks.unshift(text);
     this.setState({tasks: updatedTasks});
+    this.updateLocalStorage(updatedTasks);
   }
 
   removeTask(text) {
     var updatedTasks = this.state.tasks;
     updatedTasks.splice(updatedTasks.indexOf(text), 1);
-    this.setState({tasks: updatedTasks});
+    this.setState({tasks: updatedTasks})
+    this.updateLocalStorage(updatedTasks);
+  }
+
+  updateLocalStorage(updatedTasks) {
+    console.log("tasks updated");
+    localStorage.setItem('storedTasks', JSON.stringify(updatedTasks));
   }
 
   render() {
